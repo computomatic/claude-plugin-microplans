@@ -35,7 +35,7 @@ Execute the roadmap by repeating this cycle for each step:
 
 2. **Delegate planning to the microplanner agent (mandatory).** Use the Agent tool to delegate to the microplanner. Do not write the microplan yourself, regardless of how simple the step appears. Pass the agent the full context it needs since it runs in an isolated context window and will not read the master plan itself. Include: the step's title and description from the master plan, any relevant decisions or constraints from prior steps, and an explicit domain role assignment (e.g., "You are planning a database migration step" or "You are planning a frontend accessibility audit"). The domain role helps the agent adopt the right perspective and terminology.
 
-3. **Review the microplan and ask questions.** Read the microplan the agent created. Present the user with each Outstanding Question one at a time. Wait for an answer before moving to the next question.
+3. **Review the microplan and ask questions.** Read the microplan the agent created. Present Outstanding Questions to the user **one at a time -- ask a single question, wait for the answer, then ask the next**. Never present multiple questions in one message.
 
 4. **Incorporate answers.** Once all questions are answered, delegate back to a subagent to update the microplan with the user's answers. The subagent should revise the Implementation Plan to reflect the decisions and clear the answered questions from Outstanding Questions.
 
@@ -93,7 +93,7 @@ For each pending step, repeat this cycle:
 
 1. **Review the master plan.** Identify the next `pending` step. Mark it `in-progress`.
 2. **Delegate planning (mandatory).** Use the Agent tool to delegate to the microplanner agent. Never write the microplan yourself. Pass full context: the step's title and description, relevant decisions from prior steps, and an explicit domain role assignment. The agent runs in an isolated context and will not read this plan.
-3. **Review the microplan and ask questions.** Present each Outstanding Question to the user one at a time.
+3. **Review the microplan and ask questions.** Present Outstanding Questions to the user **one at a time -- ask a single question, wait for the answer, then ask the next**. Never present multiple questions in one message.
 4. **Incorporate answers.** Delegate to a subagent to update the microplan with the user's answers.
 5. **Delegate implementation (mandatory).** Use the Agent tool to send the finalized microplan to an implementation agent from the Available Agents section. Never implement directly. Pass the full microplan content.
 6. **Clean up and update.** Delete the microplan file. Mark the step `done` and note outcomes.
@@ -102,12 +102,15 @@ For each pending step, repeat this cycle:
 
 ### Guidelines
 
+- **One question at a time.** When presenting Outstanding Questions, always ask exactly one question per message. Wait for the user's answer before asking the next. Never batch multiple questions into a single message.
 - If a session ends mid-work, read this plan to resume. The `in-progress` step is where to pick up.
 - Each step should produce a complete, working state.
 - If new requirements surface, revise this plan before continuing.
 ```
 
 ## Guidelines
+
+- **One question at a time.** When presenting Outstanding Questions, always ask exactly one question per message. Wait for the user's answer before asking the next. Never batch multiple questions into a single message.
 
 - **Recovery from context loss.** If a session ends mid-work, start the next session by reading the master plan. The `in-progress` step tells you where to pick up. If a microplan file exists for that step, resume from there. If not, re-run the microplanner.
 
