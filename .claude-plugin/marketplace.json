@@ -1,0 +1,15 @@
+{
+  "name": "claude-plugin-microplans",
+  "owner": { "name": "computomatic" },
+  "metadata": {
+    "description": "Structured microplan pattern for scaling code generation over multi-step roadmaps",
+    "pluginRoot": "./plugins"
+  },
+  "plugins": [
+    {
+      "name": "microplans",
+      "description": "Structured microplan pattern for scaling code generation over multi-step roadmaps",
+      "source": "./plugins/microplans"
+    }
+  ]
+}

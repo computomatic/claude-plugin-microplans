@@ -1,0 +1,9 @@
+{
+  "name": "microplans",
+  "description": "Structured microplan pattern for scaling code generation over multi-step roadmaps",
+  "version": "1.0.0",
+  "author": {
+    "name": "computomatic"
+  },
+  "repository": "https://github.com/computomatic/claude-plugin-microplans"
+}
