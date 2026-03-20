@@ -2,7 +2,6 @@
 name: create-master-plan
 description: Creates a master plan and executes the microplan loop. Use when the user wants to plan and execute a multi-step roadmap.
 argument-hint: "[optional: description of the goal or roadmap]"
-disable-model-invocation: true
 ---
 
 # Create Master Plan
