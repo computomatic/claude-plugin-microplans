@@ -69,7 +69,7 @@ These rules are non-negotiable. They apply to every step, regardless of perceive
 
 For each pending step, repeat this cycle:
 
-1. **Review the master plan.** Identify the next `pending` step. Mark it `in-progress`.
+1. **Re-read the master plan.** Re-read the master plan file from disk (using the Read tool) -- never rely on what you remember from a previous iteration, as subagents may have made changes. Identify the next `pending` step. Mark it `in-progress`.
 2. **Delegate planning (mandatory).** Use the Agent tool to delegate to the microplanner agent. Never write the microplan yourself. Pass full context: the step's title and description, relevant decisions from prior steps, and an explicit domain role assignment. The agent runs in an isolated context and will not read this plan.
 3. **Review the microplan and ask questions.** Present Outstanding Questions to the user **one at a time -- ask a single question, wait for the answer, then ask the next**. Never present multiple questions in one message.
 4. **Incorporate answers.** Delegate to a subagent to update the microplan with the user's answers.
@@ -96,7 +96,7 @@ The **Plan file** line at the top of the document must contain the absolute path
 
 Repeat this cycle for each step in the roadmap:
 
-1. **Review the master plan.** Read the master plan. Identify the next `pending` step. Mark it `in-progress`.
+1. **Re-read the master plan.** Re-read the master plan file from disk (using the Read tool) at the start of every iteration -- never rely on what you remember from a previous iteration, as subagents may have made changes. Identify the next `pending` step. Mark it `in-progress`.
 
 2. **Delegate planning to the microplanner agent (mandatory).** Use the Agent tool to delegate to the microplanner. Do not write the microplan yourself, regardless of how simple the step appears. Pass the agent the full context it needs since it runs in an isolated context window and will not read the master plan itself. Include: the step's title and description from the master plan, any relevant decisions or constraints from prior steps, and an explicit domain role assignment (e.g., "You are planning a database migration step" or "You are planning a frontend accessibility audit"). The domain role helps the agent adopt the right perspective and terminology.
 
@@ -120,6 +120,6 @@ Repeat this cycle for each step in the roadmap:
 
 - **Keep steps self-contained.** Each step should produce a complete, working state. Avoid steps that leave things broken or that depend on unfinished work from a future step.
 
-- **Master plan is the source of truth.** Do not rely on conversation history for roadmap state. Always read the master plan to determine what has been done and what comes next.
+- **Master plan is the source of truth.** Do not rely on conversation history or cached memory for roadmap state. Always re-read the master plan file from disk (using the Read tool) at the start of every loop iteration to determine what has been done and what comes next.
 
 - **Adapt the loop.** If a step surfaces new requirements, pause and revise the master plan before continuing.
