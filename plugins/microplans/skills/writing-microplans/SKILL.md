@@ -13,7 +13,7 @@ This document defines the standard format for microplan files. A microplan is a 
 **Microplan directory:** `!`echo "${TMPDIR:-/tmp}/claude-microplans/"``
 
 - Store microplans in the directory shown above
-- Create the directory with `mkdir -p` before writing if it does not exist
+- Create the directory with `mkdir -p` before writing to ensure it exists
 - Prefix filenames with `microplan-`
 - Use descriptive kebab-case names that reflect the task's purpose
 - Examples: `microplan-add-auth-middleware.md`, `microplan-refactor-database-layer.md`
