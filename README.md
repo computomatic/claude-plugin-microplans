@@ -12,7 +12,7 @@ The microplan pattern addresses a core challenge in AI-assisted development: lar
 4. Implementation is **delegated to a subagent**, keeping the orchestrator's context lean
 5. Progress is tracked in the master plan, which survives context loss
 
-Each microplan is a self-contained markdown document stored in `.claude/plans/` that captures the objective, context, research findings, implementation steps, and open questions for a single task.
+Each microplan is a self-contained markdown document stored in `$TMPDIR/claude-microplans/` that captures the objective, context, research findings, implementation steps, and open questions for a single task.
 
 ## When to Use This
 
