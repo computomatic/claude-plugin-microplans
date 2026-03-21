@@ -1,6 +1,7 @@
 ---
 name: writing-microplans
 description: Reference for the microplan document format. Provides structure, naming conventions, and writing guidelines for creating microplan files. Use when creating microplan documents.
+allowed-tools: Bash(echo *)
 ---
 
 # Writing Microplans
@@ -9,7 +10,10 @@ This document defines the standard format for microplan files. A microplan is a 
 
 ## File Location and Naming
 
-- Store microplans in `.claude/plans/` at the repository root
+**Microplan directory:** `!`echo "${TMPDIR:-/tmp}/claude-microplans/"``
+
+- Store microplans in the directory shown above
+- Create the directory with `mkdir -p` before writing to ensure it exists
 - Prefix filenames with `microplan-`
 - Use descriptive kebab-case names that reflect the task's purpose
 - Examples: `microplan-add-auth-middleware.md`, `microplan-refactor-database-layer.md`
