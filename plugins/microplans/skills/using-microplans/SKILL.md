@@ -14,6 +14,7 @@ These rules are non-negotiable. They apply to every step, regardless of perceive
 - **Never plan directly.** Always delegate planning to the microplanner agent using the Agent tool. Even if a step seems trivial, the microplanner must produce the microplan. The orchestrator must never write microplan documents itself.
 - **Never implement directly.** Always delegate implementation to a subagent (e.g., a lead-developer agent) using the Agent tool. The orchestrator must never edit code, run tests, run formatters, or run linters itself.
 - **Why this matters.** The orchestrator's context window is a shared, limited resource across the entire roadmap. Every file read, code edit, test run, or lint fix performed directly in the orchestrator consumes context needed for coordination. Delegation to subagents is not a suggestion -- it is the mechanism that makes multi-step roadmaps feasible. Each subagent gets its own context window, keeping the orchestrator lean.
+- **Follow plans exactly.** When the plan specifies a process (e.g., "for each step, do X"), follow it literally. Do not batch, combine, reorder, or "optimize" the steps. If the plan says "delegate each step to a microplanner individually," that means one microplanner agent per step -- not 3 steps per agent, not 8 steps per agent. If the plan prescribes a loop (plan, review, implement, commit, repeat), execute that loop as written for every single step. Do not sacrifice process fidelity for throughput. The plan author chose that structure deliberately. "This would be faster if I batched it" is not a valid reason to deviate. Speed is not a goal; correctness and adherence are. When in doubt about whether a deviation is acceptable, ask. Do not rationalize.
 
 ## The Master Plan
 
@@ -86,6 +87,7 @@ These rules are non-negotiable. They apply to every step, regardless of perceive
 - **Never plan directly.** Always delegate planning to the microplanner agent using the Agent tool. The orchestrator must never write microplan documents itself.
 - **Never implement directly.** Always delegate implementation to a subagent using the Agent tool. The orchestrator must never edit code, run tests, run formatters, or run linters itself.
 - **Why this matters.** The orchestrator's context window is a shared, limited resource across the entire roadmap. Every file read, code edit, test run, or lint fix performed directly in the orchestrator consumes context needed for coordination. Delegation is the mechanism that makes multi-step roadmaps feasible.
+- **Follow plans exactly.** When this plan specifies a process (e.g., "for each step, do X"), follow it literally. Do not batch, combine, reorder, or "optimize" the steps. One microplanner agent per step -- not multiple steps per agent. Execute the loop as written for every single step. Do not sacrifice process fidelity for throughput. Speed is not a goal; correctness and adherence are. When in doubt, ask. Do not rationalize.
 
 ## Execution Process
 
